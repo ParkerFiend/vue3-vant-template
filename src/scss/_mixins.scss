@@ -1,0 +1,7 @@
+@mixin bgImg($url, $width, $height) {
+  display: inline-block;
+  width: $width;
+  height: $height;
+  background-image: url(#{$url});
+  background-size: 100% 100%;
+}
