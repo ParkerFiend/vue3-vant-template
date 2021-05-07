@@ -1,6 +1,6 @@
 import { App } from 'vue'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import { createTitleGuard } from './guard'
+import { setupRouterGuard } from './guard'
 
 import Home from '../views/Home.vue'
 
@@ -23,7 +23,7 @@ const router = createRouter({
 export function setupRouter(app: App): void {
   app.use(router)
   // 创建路由守卫
-  createTitleGuard(router)
+  setupRouterGuard()
 }
 
 export default router
