@@ -2,11 +2,15 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './scss/index.scss'
 
-import { setupRouter } from './router'
+import router, { setupRouter } from './router'
 import { setupStore } from './store'
 
-const app = createApp(App)
-setupRouter(app)
-setupStore(app)
+;(async () => {
+  const app = createApp(App)
+  setupStore(app)
+  setupRouter(app)
 
-app.mount('#app')
+  await router.isReady()
+
+  app.mount('#app')
+})()
