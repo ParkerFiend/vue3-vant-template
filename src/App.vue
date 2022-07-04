@@ -10,25 +10,16 @@
   </router-view>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted } from 'vue'
+<script lang="ts" setup>
 import { getAppEnvConfig } from '@/utils/env'
 
 import { useAppStore } from '@/store/modules/app'
 
-export default defineComponent({
-  name: 'App',
-  setup(props) {
-    const appStore = useAppStore()
+const appStore = useAppStore()
 
-    onMounted(() => {
-      const { apiDomain } = getAppEnvConfig()
-      console.log(apiDomain)
-
-      appStore.initApp()
-    })
-  },
-})
+const { apiDomain } = getAppEnvConfig()
+console.log(apiDomain)
+appStore.initApp()
 </script>
 
 <style>

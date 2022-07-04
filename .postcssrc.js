@@ -18,7 +18,7 @@ module.exports = {
       // landscapeWidth: 568
     },
     autoprefixer: {
-      overrideBrowserslist: ['Android >= 4.0', 'iOS >= 8'],
+      overrideBrowserslist: ['Android >= 6.0', 'iOS >= 10'],
     },
   },
 }

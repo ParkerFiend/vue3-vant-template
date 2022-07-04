@@ -1,7 +1,7 @@
 <template>
   <section class="panel">
     <header class="panel__header">
-      <span class="panel__header-title">
+      <span v-if="title" class="panel__header-title">
         <slot name="title">{{ title }}</slot>
       </span>
       <span class="panel__header-control">
@@ -12,20 +12,9 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-
-export default defineComponent({
-  name: 'PanelContainer',
-
-  props: {
-    title: {
-      type: String as PropType<string>,
-    },
-  },
-  setup: () => {
-    return {}
-  },
+<script lang="ts" setup>
+defineProps({
+  title: { type: String, default: '' },
 })
 </script>
 

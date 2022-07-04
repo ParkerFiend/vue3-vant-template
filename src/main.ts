@@ -4,7 +4,6 @@ import './scss/index.scss'
 
 import router, { setupRouter } from './router'
 import { setupStore } from './store'
-
 ;(async () => {
   const app = createApp(App)
   setupStore(app)

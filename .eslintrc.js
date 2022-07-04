@@ -1,30 +1,29 @@
 module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    node: true,
+    es6: true,
+  },
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
+    ecmaVersion: 2020,
     sourceType: 'module',
+    jsxPragma: 'React',
     ecmaFeatures: {
       jsx: true,
-      tsx: true,
     },
   },
-  plugins: ['@typescript-eslint'],
   extends: [
-    'plugin:@typescript-eslint/recommended',
     'plugin:vue/vue3-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
   ],
   rules: {
-    // vue
-    'vue/no-v-html': 'off',
-    'vue/singleline-html-element-content-newline': 'off',
-    'vue/max-attributes-per-line': [
-      'error',
-      {
-        singleline: 3,
-        multiline: 1,
-      },
-    ],
-    'vue/require-default-prop': 'off',
-    'vue/html-closing-bracket-spacing': 'off',
+    // 'vue/script-setup-uses-vars': 'error',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    'vue/multi-word-component-names': 'off',
   },
 }

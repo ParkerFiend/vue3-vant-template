@@ -12,16 +12,11 @@ interface AppState {
 }
 
 export const useAppStore = defineStore({
-  id: 'app',
+  id: 'appStore',
   state: (): AppState => ({
     ua: null,
     userList: [],
   }),
-  getters: {
-    getUserListByIndex(index: number) {
-      return this.userList[index]
-    },
-  },
   actions: {
     initApp() {
       this.checkUA()
@@ -46,7 +41,9 @@ export const useAppStore = defineStore({
     async getUserList() {
       try {
         const res = await getUserList()
-        this.userList = res
+        if (res) {
+          this.userList = res
+        }
       } catch (error) {
         console.log(error)
       }
