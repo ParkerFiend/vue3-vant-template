@@ -8,7 +8,10 @@
     "build:test": "vue-tsc --noEmit && vite build --mode test",
     "build:pre": "vue-tsc --noEmit && vite build --mode pre",
     "serve": "vite preview",
-    "lint:stylelint": "stylelint --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/"
+    "lint:eslint": "eslint --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
+    "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+    "prepare": "husky install"
   },
   "dependencies": {
     "axios": "^0.27.2",
