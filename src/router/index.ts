@@ -10,7 +10,6 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Home',
     component: Home,
     // meta: {
-    //   keepAlive: true,
     // },
   },
 ]
