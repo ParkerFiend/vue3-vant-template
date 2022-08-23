@@ -2,18 +2,18 @@
  * Plugin to minimize and use ejs template syntax in index.html.
  * https://github.com/anncwb/vite-plugin-html
  */
-import type { Plugin } from 'vite'
+import type { PluginOption } from 'vite'
 
-import html from 'vite-plugin-html'
+import { createHtmlPlugin } from 'vite-plugin-html'
 
-export function configHtmlPlugin(env: ViteEnv, isBuild: boolean): Plugin[] {
+export function configHtmlPlugin(env: ViteEnv, isBuild: boolean) {
   const { VITE_APP_TITLE, VITE_ENV } = env
 
-  const htmlPlugin = html({
+  const htmlPlugin: PluginOption = createHtmlPlugin({
     minify: isBuild,
     inject: {
       // Inject data into ejs template
-      injectData: {
+      data: {
         env: VITE_ENV,
         title: VITE_APP_TITLE,
       },

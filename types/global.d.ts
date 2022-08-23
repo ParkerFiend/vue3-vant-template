@@ -1,3 +1,5 @@
+/// <reference types="vue/macros-global" />
+
 declare global {
   interface ViteEnv {
     VITE_ENV: string

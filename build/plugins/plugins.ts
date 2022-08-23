@@ -1,4 +1,4 @@
-import type { Plugin } from 'vite'
+import type { PluginOption } from 'vite'
 
 import vue from '@vitejs/plugin-vue'
 // import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -6,16 +6,18 @@ import legacy from '@vitejs/plugin-legacy'
 
 import { configHtmlPlugin } from './html'
 import { configCompressPlugin } from './compress'
-import { vantStylePlugin } from './vantStyle'
+import { vantPlugin } from './vant'
 
-export function createPlugins(viteEnv: ViteEnv): (Plugin | Plugin[])[] {
+export function createPlugins(viteEnv: ViteEnv) {
   const { VITE_ENV, VITE_LEGACY, VITE_BUILD_COMPRESS } = viteEnv
 
   const isBuild = VITE_ENV !== 'dev'
-  const vitePlugins: (Plugin | Plugin[])[] = [
-    vue(),
+  const vitePlugins: (PluginOption | PluginOption[])[] = [
+    vue({
+      reactivityTransform: true,
+    }),
     // vueJsx(),
-    vantStylePlugin(),
+    vantPlugin(),
   ]
 
   // vite-plugin-html
