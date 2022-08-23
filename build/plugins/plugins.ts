@@ -13,7 +13,9 @@ export function createPlugins(viteEnv: ViteEnv) {
 
   const isBuild = VITE_ENV !== 'dev'
   const vitePlugins: (PluginOption | PluginOption[])[] = [
-    vue(),
+    vue({
+      reactivityTransform: true,
+    }),
     // vueJsx(),
     vantPlugin(),
   ]

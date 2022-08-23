@@ -40,7 +40,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       },
     },
     server: {
-      port: 3000,
+      port: 4000,
       proxy: {
         '/api/': {
           target: ' http://api.test.com', // 代理地址，这里设置的地址会代替axios中设置的baseURL
