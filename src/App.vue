@@ -1,11 +1,11 @@
 <template>
   <!-- https://next.router.vuejs.org/guide/migration/index.html#router-view-keep-alive-and-transition -->
-  <router-view v-slot="{ Component, route }">
+  <router-view v-slot="{ Component }">
     <transition>
-      <keep-alive v-if="route.meta?.keepAlive">
+      <!-- 需要keep-alive的组件定义name时添加KA前缀 -->
+      <keep-alive :include="/KA/">
         <component :is="Component" />
       </keep-alive>
-      <component :is="Component" v-else />
     </transition>
   </router-view>
 </template>
