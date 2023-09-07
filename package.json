@@ -3,6 +3,7 @@
   "description": "基于vant的vue3的项目模板",
   "version": "0.0.0",
   "scripts": {
+    "commit": "czg",
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "build:test": "vue-tsc --noEmit && vite build --mode test",
