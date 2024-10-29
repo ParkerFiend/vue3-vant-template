@@ -1,9 +1,9 @@
-import router from '@/router'
+import router from '@/router';
 
-import { createTitleGuard } from './titleGuard'
-import { createScrollGuard } from './scrollGuard'
+import { createTitleGuard } from './titleGuard';
+import { createScrollGuard } from './scrollGuard';
 
 export function setupRouterGuard() {
-  createTitleGuard(router)
-  createScrollGuard(router)
+  createTitleGuard(router);
+  createScrollGuard(router);
 }

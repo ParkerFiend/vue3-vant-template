@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   plugins: {
     'postcss-px-to-viewport': {
       unitToConvert: 'px',
@@ -21,4 +21,4 @@ module.exports = {
       overrideBrowserslist: ['Android >= 6.0', 'iOS >= 10'],
     },
   },
-}
+};

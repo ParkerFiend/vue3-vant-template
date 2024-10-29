@@ -1,4 +1,6 @@
-@mixin bgImg($url, $width, $height) {
+@use 'sass:list';
+
+@mixin bg-img($url, $width, $height) {
   display: inline-block;
   width: $width;
   height: $height;
@@ -7,15 +9,15 @@
 }
 
 // 1px边框
-@mixin setBorder(
+@mixin set-border(
   $position: bottom,
   $borderColor: #c5c5c5,
   $borderRadius: 0,
   $borderStyle: solid
 ) {
-  $positionArr: top, bottom, right, left, all;
+  $position-arr: top, bottom, right, left, all;
 
-  @if not index($positionArr, $position) {
+  @if not list.index($position-arr, $position) {
     @warn 'Waring: `#{$position} is not a valid position name.`';
   }
 
@@ -41,23 +43,23 @@
       transform: scale(0.3334);
     }
 
-    @if ($position == top) {
+    @if $position == top {
       border-top: 1px $borderStyle $borderColor;
     }
 
-    @if ($position == bottom) {
+    @if $position == bottom {
       border-bottom: 1px $borderStyle $borderColor;
     }
 
-    @if ($position == left) {
+    @if $position == left {
       border-left: 1px $borderStyle $borderColor;
     }
 
-    @if ($position == right) {
+    @if $position == right {
       border-right: 1px $borderStyle $borderColor;
     }
 
-    @if ($position == all) {
+    @if $position == all {
       border: 1px $borderStyle $borderColor;
     }
   }

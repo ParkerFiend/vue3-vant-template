@@ -11,15 +11,15 @@
 </template>
 
 <script lang="ts" setup>
-import { getAppEnvConfig } from '@/utils/env'
+import { getAppEnvConfig } from '@/utils/env';
 
-import { useAppStore } from '@/store/modules/app'
+import { useAppStore } from '@/store/modules/app';
 
-const appStore = useAppStore()
+const appStore = useAppStore();
 
-const { apiDomain } = getAppEnvConfig()
-console.log(apiDomain)
-appStore.initApp()
+const { apiDomain } = getAppEnvConfig();
+console.log(apiDomain);
+appStore.initApp();
 </script>
 
 <style>

@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 defineProps({
   title: { type: String, default: '' },
-})
+});
 </script>
 
 <style lang="scss" scoped>

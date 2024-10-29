@@ -1,14 +1,14 @@
-import { defineStore } from 'pinia'
-import { store } from '@/store'
+import { defineStore } from 'pinia';
+import { store } from '@/store';
 
-import { UserAgent } from '../type'
+import { UserAgent } from '../type';
 
-import { getUserList } from '@/api'
-import { UserListResultModel } from '@/api/model/appModel'
+import { getUserList } from '@/api/user';
+import type { UserListResultModel } from '@/api/user/model';
 
 interface AppState {
-  ua: UserAgent | null
-  userList: UserListResultModel
+  ua: UserAgent | null;
+  userList: UserListResultModel;
 }
 
 export const useAppStore = defineStore({
@@ -19,10 +19,10 @@ export const useAppStore = defineStore({
   }),
   actions: {
     initApp() {
-      this.checkUA()
+      this.checkUA();
     },
     checkUA() {
-      const ua = navigator.userAgent
+      const ua = navigator.userAgent;
       const uaInfo = {
         // 是否为移动终端
         mobile:
@@ -33,25 +33,26 @@ export const useAppStore = defineStore({
         android: ua.indexOf('Android') > -1 || ua.indexOf('Linux') > -1,
 
         wx: ua.indexOf('MicroMessenger') > -1,
-      }
+      };
       // console.log(uaInfo)
-      this.ua = uaInfo
+      this.ua = uaInfo;
     },
 
     async getUserList() {
       try {
-        const res = await getUserList()
+        const res = await getUserList();
+        console.log('getUserList', res);
         if (res) {
-          this.userList = res
+          this.userList = res;
         }
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     },
   },
-})
+});
 
 // Need to be used outside the setup
 export function useAppStoreOut() {
-  return useAppStore(store)
+  return useAppStore(store);
 }
